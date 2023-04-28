@@ -1,7 +1,16 @@
 .title {
+  margin: 0 auto;
+  text-align: center;
+  color: #819481;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.input {
     margin: 0 auto;
-    text-align: center;
-    color: #819481;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 50px;
-  }
+    width: 1000px;
+    height: 250px;
+    border: #819481 1px solid;
+    border-radius: 5px;
+}
