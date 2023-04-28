@@ -8,9 +8,39 @@
 }
 
 .input {
-    margin: 0 auto;
-    width: 1000px;
-    height: 250px;
-    border: #819481 1px solid;
-    border-radius: 5px;
+  margin: 0 auto;
+  width: 1000px;
+  height: 250px;
+  border: #819481 1px solid;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: -3px -3px 5px rgb(63, 63, 63) , 3px 3px 5px black;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: center;
+  width: 850px;
+  height: 300px;
+  border: #0f0f0f 2px solid;
+  border-radius: 5px;
+  background-color: #bab6b6;
+  box-shadow: -2px -2px 4px rgb(63, 63, 63) , 2px 2px 4px black;
+}
+
+.keyboard__btn {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  background-color: #454545;
+  color: white;
+  box-shadow: -2px -2px 4px rgb(63, 63, 63) , 2px 2px 4px black;
+  font-size: 16px;
+}
+
+.keyboard__btn:hover,
+.keyboard__btn:active {
+  background-color: #0abb0a;;
 }
