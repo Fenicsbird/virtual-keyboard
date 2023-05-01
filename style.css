@@ -63,7 +63,7 @@
 
 .active {
   background-color: #0abb0a;
-  box-shadow: 2px 2px 4px rgb(255, 252, 252), -2px -2px 4px rgb(63, 63, 63);
+  box-shadow: 2px 2px 4px rgb(255, 255, 255), -2px -2px 4px rgb(63, 63, 63);
   transform: translateY(4px);
 }
 
