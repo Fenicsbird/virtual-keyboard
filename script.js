@@ -1,42 +1,63 @@
-// title
-let titleDiv = document.createElement('div');
+// заголовок
+const titleDiv = document.createElement('div');
 titleDiv.className = "title";
 titleDiv.innerHTML = "RSS Virtual Keyboard";
 document.body.appendChild(titleDiv);
 
-// input window
-let inputDiv = document.createElement('div');
+// окно ввода
+const inputDiv = document.createElement('div');
 inputDiv.className = "input";
 document.body.appendChild(inputDiv);
 
-// keyboard
-function createVirtualKeyboard() {
-// Create a div to hold the virtual keyboard
-  const keyboardDiv = document.createElement('div');
-  keyboardDiv.className = "wrapper";
-// Define the keys on the virtual keyboard
-  const keys = [
-    "`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "Back",
-    "Tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "/", "Del",
-    "Caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "Enter",
-    "Shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "/", " ", "Shift",
-    "Ctrl", "Win", "Alt", "  ", "Alt", " ", " ", " ", "Ctrl"
-    ];
-// Loop through the keys and create a button for each one
+// клавиатура
+const keyboardDiv = document.createElement('div');
+keyboardDiv.className = "wrapper";
+document.body.appendChild(keyboardDiv);
+
+// кнопки клавиатуры
+const keys = ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "Back",
+  "Tab", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]", "|", "DEL",
+  "Caps", "A", "S", "D", "F", "G", "H", "J", "K", "L", ";", "'", "Enter",
+  "Shift", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/", "▲", "Shift",
+  "Ctrl", "Win", "Alt", " ", "Alt", "Ctrl", "◄", "▼", "►"];
+
+function init() {
+  let out = '';
   for (let i = 0; i < keys.length; i++) {
-    const button = document.createElement("button");
-    button.className = "keyboard__btn"
-    button.textContent = keys[i];
-
-    button.addEventListener("click", () => {
-// Update the input field with the clicked key
-    const inputField = document.querySelector("input");
-    inputField.value += keys[i];
-    });
-    keyboardDiv.appendChild(button);
+    if (i === 14 || i === 29 || i === 42 || i === 55) {
+      out += '<div class="clearfix"></div>';
+    }
+    out += '<div class="keyboard__btn" data="' + keys[i] + '">' + keys[i] + '</div>';
   }
-// Add the virtual keyboard to the document
-    document.body.appendChild(keyboardDiv);
+  document.querySelector('.wrapper').innerHTML = out;
 }
-createVirtualKeyboard();
+init();
 
+// нажатие клавиши на физической клавиатуре выделяет клавишу на виртуальной клавиатуре
+document.onkeydown = function(event) {
+  console.log(event.key);
+  document.querySelectorAll('.keyboard__btn').forEach(function(element) {
+    element.classList.remove('active');
+  });
+  document.querySelector('.keyboard__btn[data="' + event.key + '"]').classList.add('active');
+};
+
+document.querySelectorAll('.keyboard__btn').forEach(function(element) {
+  element.onclick = function(event) {
+    document.querySelectorAll('.keyboard__btn').forEach(function(element) {
+      element.classList.remove('active');
+    });
+    let code = this.getAttribute('data');
+    this.classList.add('active');
+  }
+});
+
+// нажатия кнопок на физической клавиатуре вводят символы в поле ввода
+window.addEventListener("keydown", (event) => {
+    const p = document.createElement("p");
+    inputDiv.appendChild(p);
+    p.textContent = `${event.key}`;
+    window.scrollTo(0, document.body.scrollHeight);
+  },
+  true
+);

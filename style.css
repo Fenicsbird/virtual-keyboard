@@ -8,6 +8,9 @@
 }
 
 .input {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: justify;
   margin: 0 auto;
   width: 1000px;
   height: 250px;
@@ -15,6 +18,10 @@
   border-radius: 5px;
   margin-bottom: 20px;
   box-shadow: -3px -3px 5px rgb(63, 63, 63) , 3px 3px 5px black;
+  color: #0f0f0f;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  padding: 10px;
 }
 
 .wrapper {
@@ -22,8 +29,7 @@
   flex-wrap: wrap;
   margin: 0 auto;
   justify-content: center;
-  width: 850px;
-  height: 300px;
+  width: 1000px;
   border: #0f0f0f 2px solid;
   border-radius: 5px;
   background-color: #bab6b6;
@@ -31,16 +37,30 @@
 }
 
 .keyboard__btn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   width: 50px;
   height: 50px;
   margin: 5px;
   background-color: #454545;
   color: white;
   box-shadow: -2px -2px 4px rgb(63, 63, 63) , 2px 2px 4px black;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
 }
 
-.keyboard__btn:hover,
-.keyboard__btn:active {
+.keyboard__btn:hover {
   background-color: #0abb0a;;
+}
+
+.clearfix {
+  display: block;
+  width: 100%;
+  clear: both;
+}
+
+.active {
+  background-color: #0abb0a;
 }
